@@ -6,7 +6,7 @@ export function setData(data){
 }
 
 export function setLoading(isLoading){
-    return{
+    return{ 
         type:"loading",
         payload:isLoading
     }

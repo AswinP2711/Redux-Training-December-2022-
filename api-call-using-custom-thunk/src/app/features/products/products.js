@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import getProducts from "../../app/api";
+import getProducts from "../../api";
+
 
 function Products() {
   const dispatch = useDispatch();
@@ -8,7 +9,7 @@ function Products() {
   console.log(products);
 
   useEffect(() => {
-    getProducts(dispatch);
+    dispatch(getProducts())
   }, [dispatch]);
   return (
     <div>

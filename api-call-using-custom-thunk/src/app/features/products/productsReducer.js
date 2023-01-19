@@ -9,7 +9,7 @@ export function ProductReducer(
   switch (action.type) {
     case "set-data":
       return {
-        ...state,
+        ...state, 
         data: action.payload,
       };
 

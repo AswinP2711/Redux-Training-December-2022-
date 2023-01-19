@@ -9,7 +9,7 @@ function Products() {
   console.log(products);
 
   useEffect(() => {
-    getProducts(dispatch);
+    dispatch(getProducts())
   }, [dispatch]);
   return (
     <div>

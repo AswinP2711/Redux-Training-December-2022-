@@ -1,5 +1,6 @@
 import axios from "axios";
-import { setData, setError, setLoading } from "../features/products/productsAction";
+import { setData, setError, setLoading } from "./features/products/productsAction";
+
 
 function getProducts(dispatch){
     dispatch(setLoading(true));
