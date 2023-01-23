@@ -1,16 +1,17 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Card, Col, Modal, Row } from "react-bootstrap";
 import { ItemAdded } from "../cart/cartAction";
 
 function Product() {
-    const dispatch = useDispatch();
-  const products = useSelector((products) => products.products);
-  const cart = useSelector((cart) => cart.cart);
-  console.log(cart);
+  const dispatch = useDispatch();
+  const products = useSelector((states) => states.products.data);
+  const cart = useSelector((states) => states.cart);
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [show, setShow] = useState(false);
   
+  console.log(products);
+
   const handleClose = () => setShow(false);
 
   const handleShow = () => {
@@ -22,7 +23,7 @@ function Product() {
     if (cart.some((item) => item.id === selectedProduct.id)) {
       alert("Item already added in cart!!!");
     } else {
-        dispatch(ItemAdded(selectedProduct))
+      dispatch(ItemAdded(selectedProduct));
     }
   };
 

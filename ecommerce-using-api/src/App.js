@@ -1,11 +1,18 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Route, Router, Routes } from "react-router-dom";
 import "./App.css";
+import getProducts from "./app/api";
 import Cart from "./app/features/cart/cart";
 import Product from "./app/features/products/products";
 import Home from "./app/home";
 import Navigation from "./app/navbar";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(getProducts());
+  },[dispatch])
   return (
     <div className="App">
       <Navigation />
