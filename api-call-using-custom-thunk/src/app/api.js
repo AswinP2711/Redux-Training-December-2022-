@@ -4,7 +4,7 @@ import {
   setError,
   setLoading,
 } from "./features/products/productsAction";
-
+ 
 function getProducts() {
   return function (dispatch) {
     dispatch(setLoading(true));

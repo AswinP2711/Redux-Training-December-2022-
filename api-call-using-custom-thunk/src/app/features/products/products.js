@@ -10,7 +10,9 @@ function Products() {
 
   useEffect(() => {
     dispatch(getProducts())
+    console.log("called");
   }, [dispatch]);
+
   return (
     <div>
         {

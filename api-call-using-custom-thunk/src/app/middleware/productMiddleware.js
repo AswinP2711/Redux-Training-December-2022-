@@ -7,7 +7,7 @@ function ProductThunk({dispatch,getState}) {
         return next(action);
       };
     };
-  }
+  } 
   
   export default ProductThunk;
   

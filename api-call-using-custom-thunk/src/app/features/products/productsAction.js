@@ -11,7 +11,7 @@ export function setLoading(isLoading){
         payload:isLoading
     }
 }
-
+ 
 export function setError(error){
     return{
         type:"error",
