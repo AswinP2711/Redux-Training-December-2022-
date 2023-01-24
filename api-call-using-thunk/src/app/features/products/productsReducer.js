@@ -9,7 +9,7 @@ export function ProductReducer(
   switch (action.type) {
     case "set-data":
       return {
-        ...state, 
+        ...state,
         data: action.payload,
       };
 
@@ -25,6 +25,16 @@ export function ProductReducer(
         error: action.payload,
       };
 
+    case "product-added":
+      return {
+        ...state,
+        data:[...state.data,action.payload]
+      };
+    case "delete-product":
+      state.data = state.data.filter((products)=>products.name !== action.productName);
+      return {
+        ...state
+      }
     default:
       return state;
   }

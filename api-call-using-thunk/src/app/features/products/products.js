@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import getProducts from "../../api";
-
+import { ProductDeleted } from "./productsAction";
 
 function Products() {
   const dispatch = useDispatch();
@@ -9,16 +9,16 @@ function Products() {
   console.log(products);
 
   useEffect(() => {
-    dispatch(getProducts())
+    dispatch(getProducts());
   }, [dispatch]);
+
+  const onDeleteProduct = (productName) => {
+    dispatch(ProductDeleted(productName));
+  };
   return (
     <div>
-        {
-            products.loading && <h1>Loading</h1>
-        }
-        {
-            products.error && <h1>{products.error}</h1>
-        }
+      {products.loading && <h1>Loading</h1>}
+      {products.error && <h1>{products.error}</h1>}
       <h1>Product API</h1>
       <table border={2}>
         <thead>
@@ -32,6 +32,9 @@ function Products() {
               <td>{product.name}</td>
               <td>{product.price}</td>
               <td>{product.type}</td>
+              <button onClick={() => onDeleteProduct(product.name)}>
+                Delete
+              </button>
             </tr>
           ))}
         </tbody>
